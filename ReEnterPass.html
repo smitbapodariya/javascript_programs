@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 350px;
+        }
+        input[type="text"], input[type="checkbox"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            display: block;
+            margin-top: -8px;
+            margin-bottom: 10px;
+        }
+        input[type="checkbox"] {
+            width: auto;
+        }
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+        #successMessage {
+            color: green;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="abc.txt" method="get">
+        <label for="user">Username:</label>
+        <input type="text" id="user" placeholder="Enter username">
+        <span class="error" id="spanuser"></span>
+
+        <label for="pass">Password:</label>
+        <input type="text" id="pass" placeholder="Enter password">
+        <span class="error" id="spanpass"></span>
+
+        <label for="repass">Re-Enter Password:</label>
+        <input type="text" id="repass" placeholder="Re-enter password">
+        <span class="error" id="spanrepass"></span>
+
+        <label>
+            <input type="checkbox" id="chbx">
+            Are you sure you want to submit the form?
+        </label>
+        <span class="error" id="spanchbx"></span>
+
+        <input type="button" id="btn" value="Submit">
+        <p id="successMessage"></p>
+    </form>
+
+    <script>
+        let user = document.querySelector("#user");
+        let pass = document.querySelector("#pass");
+        let repass = document.querySelector("#repass");
+        let btn = document.querySelector("#btn");
+        let chbx = document.querySelector("#chbx");
+        let successMessage = document.querySelector("#successMessage");
+
+        let spanuser = document.querySelector("#spanuser");
+        let spanpass = document.querySelector("#spanpass");
+        let spanrepass = document.querySelector("#spanrepass");
+        let spanchbx = document.querySelector("#spanchbx");
+
+        btn.addEventListener("click", () => {
+            let a = user.value;
+            let b = pass.value;
+            let c = repass.value;
+            let ischeckd = false;
+            let isvalid = false;
+
+            spanuser.innerHTML = "";
+            spanpass.innerHTML = "";
+            spanrepass.innerHTML = "";
+            spanchbx.innerHTML = "";
+
+            if (a === "") {
+                spanuser.innerHTML = "Please enter username";
+            }
+            if (b === "") {
+                spanpass.innerHTML = "Please enter password";
+            }
+            if (chbx.checked) {
+                ischeckd = true;
+            } else {
+                spanchbx.innerHTML = "Please check the box";
+            }
+            if (ischeckd == true) {
+                isvalid = true;
+            }
+
+            if (b !== c) {
+                spanrepass.innerHTML = "Passwords do not match";
+            }
+
+            if (!isvalid) {
+                event.preventDefault();
+            } else {
+                successMessage.innerHTML = "Welcome! Your form has been submitted successfully";
+            }
+        });
+    </script>
+</body>
+
+</html>

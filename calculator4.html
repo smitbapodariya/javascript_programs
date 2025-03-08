@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        /* Basic styles for the form and page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        label {
+            font-size: 14px;
+            margin: 10px 0 5px;
+            display: block;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            margin: 5px 0;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="n1">Enter number 1:</label>
+        <input type="number" id="txtno1">
+        <br>
+        <label for="n2">Enter number 2:</label>
+        <input type="number" id="txtno2">
+        <br>
+        <input type="button" value="Addition" id="addbtn">
+        <input type="button" value="Subtraction" id="subbtn">
+        <input type="button" value="Multiplication" id="mulbtn">
+        <input type="button" value="Division" id="divbtn">
+        <br>
+        <p id="pans">Answer:</p>
+    </form>
+    <script>
+        let txtno1 = document.querySelector("#txtno1");
+        let txtno2 = document.querySelector("#txtno2");
+        let addbtn = document.querySelector("#addbtn");
+        let subbtn = document.querySelector("#subbtn");
+        let mulbtn = document.querySelector("#mulbtn");
+        let divbtn = document.querySelector("#divbtn");
+        let pans = document.querySelector("#pans");
+
+        addbtn.addEventListener("click", () => {
+            let a = parseFloat(txtno1.value);
+            let b = parseFloat(txtno2.value);
+
+            pans.innerHTML = "Answer: " + (a + b); // Reset the answer each time
+        })
+
+        subbtn.addEventListener("click", () => {
+            let a = parseFloat(txtno1.value);
+            let b = parseFloat(txtno2.value);
+
+            pans.innerHTML = "Answer: " + (a - b); // Reset the answer each time
+        })
+
+        mulbtn.addEventListener("click", () => {
+            let a = parseFloat(txtno1.value);
+            let b = parseFloat(txtno2.value);
+
+            pans.innerHTML = "Answer: " + (a * b); // Reset the answer each time
+        })
+
+        divbtn.addEventListener("click", () => {
+            let a = parseFloat(txtno1.value);
+            let b = parseFloat(txtno2.value);
+
+            if (b !== 0) {
+                pans.innerHTML = "Answer: " + (a / b); // Reset the answer each time
+            } else {
+                pans.innerHTML = "Answer: Cannot divide by zero.";
+            }
+        })
+    </script>
+</body>
+
+</html>

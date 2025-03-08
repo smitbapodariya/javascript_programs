@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        No1 : <input type="number" id="txtno1">
+        <br><br>
+        <input type="button" value="submit" id="btn">
+        <br>
+        <p id="pans">Area of circle is:</p>
+    </form>
+    <script>
+        let txtno1 = document.querySelector("#txtno1");
+        let btn = document.querySelector("#btn");
+        let pans = document.querySelector("#pans");
+
+        btn.addEventListener("click", () =>{
+            let radius = parseFloat(txtno1.value);
+            pans.innerHTML += (3.14*radius*radius);
+        })
+    </script>
+</body>
+
+</html>

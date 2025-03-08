@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorial Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+
+        h5 {
+            margin-top: 20px;
+            color: #333;
+        }
+
+        input[type="number"] {
+            padding: 8px;
+            width: 80%;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+
+        input[type="button"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            margin: 10px 0;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        p {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #ans {
+            color: #007bff;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="">
+        <label for="n1">Enter number:</label>
+        <input type="number" id="n1" min="0">
+        <br>
+        <input type="button" value="Click here!" onclick="clicl()">
+        <br>
+        <p>Factorial is: <h5 id="ans"></h5></p>
+    </form>
+    <script>
+        function clicl() {
+            let a = parseInt(document.getElementById("n1").value);
+            let fac = 1;
+            if (a < 0) {
+                document.getElementById("ans").innerHTML = "Please enter a non-negative number.";
+            } else {
+                for (let i = 1; i <= a; i++) {
+                    fac *= i;
+                }
+                document.getElementById("ans").innerHTML = fac;
+            }
+        }
+    </script>
+</body>
+
+</html>

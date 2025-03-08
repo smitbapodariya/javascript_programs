@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        No1 : <input type="number" id="n1">
+        <input type="button" value="submit" onclick="aoc()">
+        <br>
+        <p>Area of circle is:</p><span id="ans"></span>
+    </form>
+    <script>
+        function aoc() {
+            let r = parseInt(document.getElementById("n1").value);
+            let pie = 3.14;
+            document.getElementById("ans").innerHTML = pie * r * r;
+        }
+    </script>
+</body>
+
+</html>

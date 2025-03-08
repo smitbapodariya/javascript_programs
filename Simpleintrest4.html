@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interest Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        input[type="button"] {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px;
+            width: 100%;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type="button"]:hover {
+            background-color: #218838;
+        }
+
+        h6 {
+            margin-top: 15px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <header>Find an Interest</header>
+        <label>Enter Amount:</label>
+        <input type="number" id="txtamount" placeholder="Enter amount">
+        <br>
+        <label>Enter Number of Years:</label>
+        <input type="number" id="txtnoy" placeholder="Enter years">
+        <br>
+        <label>Enter Rate:</label>
+        <input type="number" id="txtrate" placeholder="Enter rate">
+        <br>
+        <input type="button" id="btn" value="Calculate Interest">
+        <h6 id="h6ans"></h6>
+    </form>
+    <script>
+        let txtamount = document.querySelector("#txtamount");
+        let txtnoy = document.querySelector("#txtnoy");
+        let txtrate = document.querySelector("#txtrate");
+        let btn = document.querySelector("#btn");
+        let h6ans = document.querySelector("#h6ans");
+
+        btn.addEventListener("click", () => {
+            amount = parseFloat(txtamount.value);
+            noy = parseFloat(txtnoy.value);
+            rate = parseFloat(txtrate.value);
+
+            h6ans.innerHTML =`Intrest of  ${noy} year ${rate}%  ${amount}    is:`+ ((amount*noy*rate)/100); 
+        })
+    </script>
+</body>
+
+</html>

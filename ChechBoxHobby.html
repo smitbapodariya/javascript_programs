@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        Select Your Hobby:
+        <input type="checkbox" value="C" id="cri">Cricket
+        <input type="checkbox" value="S" id="sing">Singing
+        <input type="checkbox" value="D" id="danc">Dancing
+        <input type="checkbox" value="sw" id="swi">Swimming
+        <input type="checkbox" value="R" id="read">Reading
+
+        <br>
+        <input type="button" id="ansbtn" value="click me!">
+        <br>
+        Answer: <p id="pans"></p>
+    </form>
+    <script>
+        let cri = document.querySelector("#cri");
+        let sing = document.querySelector("#sing");
+        let danc = document.querySelector("#danc");
+        let swi = document.querySelector("#swi");
+        let read = document.querySelector("#read");
+        let ansbtn = document.querySelector("#ansbtn");
+        let pans = document.querySelector("#pans")
+
+        ansbtn.addEventListener("click", () => {
+            let str = "";
+
+            if (cri.checked) {
+                str+="Cricket";
+            }
+            if (sing.checked) {
+                str+="Singing";
+            }
+             if (danc.checked) {
+                str += "Dancing";
+            }
+            if (swi.checked) {
+                str += "Swimming";
+            }
+            if (read.checked) {
+                str += "Reading";
+            }
+            pans.innerHTML = " " +str;
+        })
+    </script>
+</body>
+
+</html>

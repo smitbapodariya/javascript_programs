@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Form with Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        input[type="text"],
+        input[type="number"],
+        input[type="email"] {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            display: block;
+        }
+
+        input[type="button"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+        }
+
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <form>
+        <label for="txtname">Name:</label>
+        <input type="text" id="txtname" placeholder="Enter your name">
+        <span class="error" id="spanname"></span>
+
+        <label for="txtage">Age:</label>
+        <input type="number" id="txtage" placeholder="Enter your age">
+        <span class="error" id="spanage"></span>
+
+        <label for="txtadd">Address:</label>
+        <input type="text" id="txtadd" placeholder="Enter your address">
+        <span class="error" id="spanadd"></span>
+
+        <label for="txtemail">Email:</label>
+        <input type="email" id="txtemail" placeholder="Enter your email">
+        <span class="error" id="spanemail"></span>
+
+        <input type="button" value="Submit" id="btn">
+    </form>
+
+    <script>
+        let txtname = document.querySelector("#txtname");
+        let txtage = document.querySelector("#txtage");
+        let txtadd = document.querySelector("#txtadd");
+        let txtemail = document.querySelector("#txtemail");
+        let spanname = document.querySelector("#spanname");
+        let spanage = document.querySelector("#spanage");
+        let spanadd = document.querySelector("#spanadd");
+        let spanemail = document.querySelector("#spanemail");
+        let btn = document.querySelector("#btn");
+
+        btn.addEventListener("click", () => {
+            let a = txtname.value.trim();
+            let b = txtage.value.trim();
+            let c = txtadd.value.trim();
+            let d = txtemail.value.trim();
+
+            spanname.innerHTML = "";
+            spanage.innerHTML = "";
+            spanadd.innerHTML = "";
+            spanemail.innerHTML = "";
+
+            if (a === "") {
+                spanname.innerHTML = "Name is required";
+            }
+            if (b === "") {
+                spanage.innerHTML = "Age is required";
+            } else if (isNaN(b) || b <= 0) {
+                spanage.innerHTML = "Enter a valid positive age";
+            }
+            if (c === "") {
+                spanadd.innerHTML = "Address is required";
+            }
+            let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if (d === "") {
+                spanemail.innerHTML = "Email is required";
+            } else if (!emailPattern.test(d)) {
+                spanemail.innerHTML = "Enter a valid email address";
+            }
+        });
+    </script>
+</body>
+
+</html>

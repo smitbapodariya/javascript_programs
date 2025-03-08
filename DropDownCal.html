@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding: 20px;
+        }
+
+        form {
+            background: white;
+            padding: 20px;
+            display: inline-block;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input,
+        select {
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        select {
+            cursor: pointer;
+            background-color: white;
+        }
+
+        select:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Simple Calculator</h2>
+    <form>
+        <label>Enter number 1:</label>
+        <input type="number" id="txtno1">
+        <br>
+        <label>Enter number 2:</label>
+        <input type="number" id="txtno2">
+        <br>
+        <label>Select Operation:</label>
+        <select name="cal" id="opration">
+            <option value="Addition">Addition (+)</option>
+            <option value="Subtraction">Subtraction (-)</option>
+            <option value="Multiplication">Multiplication (×)</option>
+            <option value="Division">Division (÷)</option>
+        </select>
+        <br>
+        Answer:<p id="pans"></p>
+    </form>
+    <script>
+        let txtno1 = document.querySelector("#txtno1");
+        let txtno2 = document.querySelector("#txtno2");
+        let opration = document.querySelector("#opration");
+        let pans = document.querySelector("#pans");
+
+        opration.addEventListener("change", () => {
+            let op = opration.value;
+            let a= parseInt(txtno1.value);
+            let b= parseInt(txtno2.value);
+            
+            if(op=="Addition")
+            {
+                pans.innerHTML = (a+b);
+            }
+            else if(op=="Subtraction")
+            {
+                pans.innerHTML = (a-b);
+            }
+        })
+    </script>
+</body>
+
+</html> 

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="">
+        Base : <input type="number" id="n1">
+        <br>
+        Height : <input type="number" id="n2">
+        <br>
+        <input type="button" value="click me" onclick="aot()">
+        <br>
+            <h5 id="ans">Area of triangle is:</h5>
+
+    </form>
+    <script>
+        function aot() {
+            let b = parseFloat(document.getElementById("n1").value);
+            let h = parseFloat(document.getElementById("n2").value);
+            let a = parseFloat(document.getElementById("ans").innerHTML = ((1 / 2) * b * h));
+        }
+    </script>
+</body>
+
+</html>
