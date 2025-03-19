@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe</title>
+    <style>
+        /* (your existing CSS above...) */
+    
+        #winmsg {
+            margin-top: 20px;
+            font-size: 2rem;
+            color: #4CAF50;
+            font-weight: bold;
+            text-align: center;
+            animation: blink 1s infinite;
+        }
+    
+        @keyframes blink {
+            0% { opacity: 1; }
+            50% { opacity: 0.4; }
+            100% { opacity: 1; }
+        }
+    </style>
+    <!DOCTYPE html>
+    <html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Tic Tac Toe</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+                font-family: 'Arial', sans-serif;
+            }
+    
+            body {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+            }
+    
+            h1 {
+                margin-bottom: 20px;
+                color: #333;
+                font-size: 3rem;
+            }
+    
+            .game-container {
+                display: grid;
+                grid-template-columns: repeat(3, 100px);
+                grid-template-rows: repeat(3, 100px);
+                gap: 10px;
+            }
+    
+            .cell {
+                width: 100px;
+                height: 100px;
+                background-color: #fff;
+                border: 3px solid #444;
+                font-size: 2.5rem;
+                color: #333;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                transition: background-color 0.3s;
+                border-radius: 10px;
+            }
+    
+            .cell:hover {
+                background-color: #f0f0f0;
+            }
+    
+            #reset-btn {
+                margin-top: 20px;
+                padding: 10px 20px;
+                font-size: 1.2rem;
+                background-color: #4CAF50;
+                color: white;
+                border: none;
+                border-radius: 8px;
+                cursor: pointer;
+                transition: background-color 0.3s;
+            }
+    
+            #reset-btn:hover {
+                background-color: #45a049;
+            }
+    
+            #winmsg {
+                margin-top: 20px;
+                font-size: 2rem;
+                color: #4CAF50;
+                font-weight: bold;
+                text-align: center;
+                animation: blink 1s infinite;
+            }
+    
+            /* Optional: Blinking animation for fun effect */
+            @keyframes blink {
+                0% {
+                    opacity: 1;
+                }
+    
+                50% {
+                    opacity: 0.4;
+                }
+    
+                100% {
+                    opacity: 1;
+                }
+            }
+        </style>
+</head>
+
+<body>
+
+    <h1>Tic Tac Toe</h1>
+
+    <div class="game-container">
+        <button class="cell" id="cell0"></button>
+        <button class="cell" id="cell1"></button>
+        <button class="cell" id="cell2"></button>
+        <button class="cell" id="cell3"></button>
+        <button class="cell" id="cell4"></button>
+        <button class="cell" id="cell5"></button>
+        <button class="cell" id="cell6"></button>
+        <button class="cell" id="cell7"></button>
+        <button class="cell" id="cell8"></button>
+    </div>
+
+    <p id="winmsg"></p>
+    <button id="resetbtn">Reset Game</button>
+
+
+</body>
+<script>
+    let cell0 = document.querySelector("#cell0");
+    let cell1 = document.querySelector("#cell1");
+    let cell2 = document.querySelector("#cell2");
+    let cell3 = document.querySelector("#cell3");
+    let cell4 = document.querySelector("#cell4");
+    let cell5 = document.querySelector("#cell5");
+    let cell6 = document.querySelector("#cell6");
+    let cell7 = document.querySelector("#cell7");
+    let cell8 = document.querySelector("#cell8");
+    let y = 1;
+    let winmsg = document.querySelector("#winmsg");
+    let resetbtn = document.querySelector("#resetbtn");
+
+    cell0.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell0.innerHTML = "X"
+        }
+        else {
+            cell0.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell1.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell1.innerHTML = "X"
+        }
+        else {
+            cell1.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell2.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell2.innerHTML = "X"
+        }
+        else {
+            cell2.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell3.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell3.innerHTML = "X"
+        }
+        else {
+            cell3.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell4.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell4.innerHTML = "X"
+        }
+        else {
+            cell4.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell5.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell5.innerHTML = "X"
+        }
+        else {
+            cell5.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell6.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell6.innerHTML = "X"
+        }
+        else {
+            cell6.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell7.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell7.innerHTML = "X"
+        }
+        else {
+            cell7.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+    cell8.addEventListener("click", () => {
+        if (y % 2 == 0) {
+            cell8.innerHTML = "X"
+        }
+        else {
+            cell8.innerHTML = "O"
+        }
+        y++;
+        match();
+        tie();
+    })
+
+    function match() {
+        if (cell0.innerHTML !== "" && cell0.innerHTML === cell1.innerHTML && cell1.innerHTML === cell2.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell0.innerHTML} Wins!!`;
+        }
+        else if (cell3.innerHTML !== "" && cell3.innerHTML === cell4.innerHTML && cell4.innerHTML === cell5.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell3.innerHTML} Wins!!`;
+        }
+        else if (cell6.innerHTML !== "" && cell6.innerHTML === cell7.innerHTML && cell7.innerHTML === cell8.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell6.innerHTML} Wins!!`;
+        }
+
+
+        else if (cell0.innerHTML !== "" && cell0.innerHTML === cell3.innerHTML && cell3.innerHTML === cell6.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell0.innerHTML} Wins!!`;
+        }
+        else if (cell1.innerHTML !== "" && cell1.innerHTML === cell4.innerHTML && cell4.innerHTML === cell7.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell1.innerHTML} Wins!!`;
+        }
+        else if (cell2.innerHTML !== "" && cell2.innerHTML === cell5.innerHTML && cell5.innerHTML === cell8.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell2.innerHTML} Wins!!`;
+        }
+
+
+        else if (cell0.innerHTML !== "" && cell0.innerHTML === cell4.innerHTML && cell4.innerHTML === cell8.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell0.innerHTML} Wins!!`;
+        }
+        else if (cell2.innerHTML !== "" && cell2.innerHTML === cell4.innerHTML && cell4.innerHTML === cell6.innerHTML) {
+            winmsg.innerHTML = `🎉 Congratulations! ${cell2.innerHTML} Wins!!`;
+        }
+
+    }
+
+    // function tie() {
+    //     if ((cell0 !== "") && (cell1 !== "") && (cell2 !== "") &&
+    //         (cell3 !== "") && (cell4 !== "") && (cell5 !== "") &&
+    //         (cell6 !== "") && (cell7 !== "") && (cell8 !== "") &&
+    //         (winmsg.innerHTML === "")
+    //     ) {
+    //         winmsg.innerHTML = `😐 It's a tie!`;
+    //     }
+    // }
+
+    function tie() {
+        let cells = [cell0, cell1, cell2, cell3, cell4, cell5, cell6, cell7, cell8];
+        let isTie = cells.every(cell => cell.innerHTML !== "");
+        if (isTie && winmsg.innerHTML === "") {  // Ensure no one has won yet
+            winmsg.innerHTML = `😐 It's a tie!`;
+        }
+    }
+
+    // function checkGameComplete(){
+    //     if((winmsg.innerHTML = `😐 It's a tie!`)||(winmsg.innerHTML = `🎉 Congratulations! Wins!!`)){
+    //         document.getElementById("resetbtn").style.display = "block";
+    //     }
+    // }
+
+    resetbtn.addEventListener("click", () => {
+        location.reload();
+    })
+
+
+</script>
+
+</html>
