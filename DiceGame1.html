@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            margin-top: 50px;
+        }
+
+        #dice1 {
+            width: 150px;
+            height: 150px;
+        }
+
+        #dicebtn {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 20px;
+            font-weight: bold;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #dicebtn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <img id="dice1" src="images/d1.png"> <!-- Default dice image -->
+        <input type="button" value="Roll Dice" id="dicebtn">
+    </div>
+
+    <script>
+        let dicebtn = document.querySelector("#dicebtn");
+        let diceImage = document.querySelector("#dice1");
+
+        dicebtn.addEventListener("click", () => {
+            let a = Math.floor(Math.random() * 6) + 1;
+            diceImage.src = `images/d${a}.png`;
+        });
+    </script>
+
+</body>
+
+</html>

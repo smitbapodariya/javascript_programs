@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice CAPTCHA Game</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #e3f2fd;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            width: 380px;
+        }
+
+        .dice-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .dice-captcha {
+            width: 80px;
+            height: 50px;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #f1f1f1;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-family: 'Courier New', monospace;
+            color: #333;
+            text-transform: uppercase;
+            box-shadow: 3px 3px 6px rgba(0, 0, 0, 0.2);
+            user-select: none;
+            transform: rotate(calc(-5deg + 10deg * var(--rotate)));
+        }
+
+        #dicebtn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #dicebtn:hover {
+            background-color: #218838;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        #surebtn {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        #surebtn:hover {
+            background-color: #0056b3;
+        }
+
+        #winmsg {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Number CAPTCHA Game</h2>
+
+        <div class="dice-container">
+            <input type="text" id="diceImage1" class="dice-captcha" readonly>
+            <input type="text" id="diceImage2" class="dice-captcha" readonly>
+        </div>
+
+        <input type="button" value="Generate Number" id="dicebtn">
+
+        <input type="text" placeholder="Enter sum of two numbers" id="txtadddice">
+        <input type="button" value="Check" id="surebtn">
+
+        <h3 id="winmsg"></h3>
+    </div>
+
+    <script>
+        let diceImage1 = document.querySelector("#diceImage1");
+        let diceImage2 = document.querySelector("#diceImage2");
+        let dicebtn = document.querySelector("#dicebtn");
+        let txtadddice = document.querySelector("#txtadddice");
+        let surebtn = document.querySelector("#surebtn");
+        let winmsg = document.querySelector("#winmsg");
+
+        let addition = 0;
+
+        dicebtn.addEventListener("click", () => {
+            let a = Math.floor(Math.random() * 10);
+            let b = Math.floor(Math.random() * 10);
+
+            diceImage1.value = a;
+            diceImage2.value = b;
+
+            // Add a random rotation effect for CAPTCHA-like feel
+            diceImage1.style.setProperty("--rotate", Math.random());
+            diceImage2.style.setProperty("--rotate", Math.random());
+
+            addition = a + b;
+            winmsg.innerHTML = "";
+        });
+
+        surebtn.addEventListener("click", () => {
+            let tad = parseInt(txtadddice.value);
+            if (tad === addition) {
+                winmsg.innerHTML = "✅ Yes, you are right!";
+                winmsg.style.color = "green";
+            } else {
+                winmsg.innerHTML = "❌ No, you are wrong!";
+                winmsg.style.color = "red";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
