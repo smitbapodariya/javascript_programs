@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 24px;
+        }
+
+        h5 {
+            font-size: 18px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            padding: 8px;
+            margin: 10px;
+            font-size: 16px;
+            width: 200px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        input[type="button"]:hover {
+            background-color: #45a049;
+        }
+
+        #msg {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        #msg:empty {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <h3 id="Qprint"></h3>
+    <h5 id="ans"></h5>
+    <input type="text" id="comAns" placeholder="Correct answer" style="display: none;">
+    <input type="button" value="Check" id="chk" style="display: none;">
+    <br><br>
+    <p id="msg"></p>
+    <input type="button" id="btn" value="Click Me!">
+</body>
+
+<script>
+    let Que = ["How many days are there in a normal year?", "How many colors are there in a rainbow?", "How many consonants are there in the English alphabet?", "What is 4+5?"];
+    let Ans = [365, 366, 369, 364, 5, 7, 9, 11, 22, 24, 21, 20, 8, 5, 9, 10];
+    let Rans = [365, 7, 21, 9];
+
+    let qp = document.querySelector("#Qprint");
+    let ans = document.querySelector("#ans");
+    let btn = document.querySelector("#btn");
+    let comAns = document.querySelector("#comAns");
+    let msg = document.querySelector("#msg");
+    let chk = document.querySelector("#chk");
+
+    let pos = 0;
+
+    btn.addEventListener("click", () => {
+        if (pos >= Que.length) {
+            btn.style.display = "none";
+            qp.innerHTML = "Quiz finished!";
+            ans.innerHTML = "";
+            chk.style.display = "none";
+            comAns.style.display = "none";
+            return;
+        }
+
+        if (pos === 0) {
+            comAns.style.display = "inline-block";
+            chk.style.display = "inline-block";
+        }
+
+        qp.innerHTML = Que[pos];
+
+        if (pos == 0) {
+            ans.innerHTML = Ans.slice(0, 4).join(", ");
+        } else if (pos == 1) {
+            ans.innerHTML = Ans.slice(4, 8).join(", ");
+        } else if (pos == 2) {
+            ans.innerHTML = Ans.slice(8, 12).join(", ");
+        } else if (pos == 3) {
+            ans.innerHTML = Ans.slice(12, 16).join(", ");
+        }
+
+        msg.innerHTML = "";
+        pos++;
+    });
+
+    chk.addEventListener("click", () => {
+        let currentPos = pos - 1;
+        let userAnswer = Number(comAns.value);
+
+        if (userAnswer === Rans[currentPos]) {
+            msg.innerHTML = "✅ Right answer!";
+            btn.style.display = "inline-block";
+        } else {
+            msg.innerHTML = "❌ Wrong answer!";
+            btn.style.display = "none";
+        }
+
+        comAns.value = "";
+    });
+</script>
+
+</html>
