@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Finder Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ecf0f1;
+            padding: 20px;
+        }
+
+        #imgframe {
+            width: 300px;
+            height: 350px;
+            border: 5px solid #2c3e50;
+            border-radius: 15px;
+            display: block;
+            margin: 20px auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+            object-fit: cover;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        div {
+            margin: 20px 0;
+        }
+
+        input[type="radio"] {
+            display: none;
+        }
+
+        label {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 25px;
+            margin: 5px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        input[type="radio"]:checked+label {
+            background-color: #2ecc71;
+            transform: scale(1.1);
+            box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        #btnnxt {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 14px 30px;
+            font-size: 20px;
+            font-weight: bold;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        #btnnxt:hover {
+            background-color: #c0392b;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="div1">
+
+        <img src="images/jethalal.jpeg" alt="jethalal" id="imgframe">
+
+        <input type="radio" id="babitaji" value="Babitaji" name="img1">
+        <label for="babitaji">Babitaji</label>
+
+        <input type="radio" id="jethalal" value="Jethalal" name="img1">
+        <label for="jethalal">Jethalal</label>
+
+        <input type="radio" id="daya" value="Daya" name="img1">
+        <label for="daya">Daya</label>
+
+        <input type="radio" id="sundar" value="Sundar" name="img1">
+        <label for="sundar">Sundar</label>
+
+    </div>
+
+    <input type="button" value="Next" id="btnnxt">
+
+</body>
+<script>
+    let imgframe = document.querySelector("#imgframe");
+    let btnnxt = document.querySelector("#btnnxt");
+
+    btnnxt.addEventListener("click", () => {
+        let imfr = imgframe.src;
+        let selectradio = document.querySelector(`input[name="img1"]:checked`);
+
+        if (!selectradio) {
+            alert("Please select character!!");
+            return;
+        }
+
+        let selectedvalue = selectradio.value;
+
+        if (imfr.includes("images/jethalal.jpeg") && selectedvalue === "Jethalal") {
+            imgframe.src = "images/Babitaji.jpeg";
+        }
+        else if(imfr.includes("images/Babitaji.jpeg") && selectedvalue === "Babitaji"){
+            imgframe.src = "images/daya.jpeg";
+        }
+        else if(imfr.includes("images/daya.jpeg") && selectedvalue === "Daya"){
+            imgframe.src = "images/sundar.jpeg";
+        }
+        else if(imfr.includes("images/sundar.jpeg") && selectedvalue === "Sundar"){
+            imgframe.src = "images/jethalal.jpeg";
+        }
+        else {
+            alert("Wrong choice!")
+        }
+
+    })
+
+
+</script>
+
+</html>

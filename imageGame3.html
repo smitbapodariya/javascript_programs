@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Quiz</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        img {
+            width: 200px;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+
+        #div1 {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            margin: auto;
+            gap: 15px;
+        }
+
+        input[type="radio"] {
+            margin: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="images/jethalal.jpeg" alt="jethalal" id="img1">
+    <div id="div1">
+        <input type="radio" value="popatlal" id="pradio" name="a1">Popatlal
+        <input type="radio" value="jethalal" id="jradio" name="a1">Jethalal
+        <input type="radio" value="babitaji" id="bradio" name="a1">Babitaji
+        <input type="radio" value="tapu" id="tradio" name="a1">Tapu
+        
+        
+    </div>
+</body>
+<script>
+    let img1 = document.querySelector("#img1");
+    let jradio = document.querySelector("#jradio");
+    let bradio = document.querySelector("#bradio");
+    let pradio = document.querySelector("#pradio");
+    let tradio = document.querySelector("#tradio");
+    let q = 1;
+
+    jradio.addEventListener("click", () => {
+        if (q == 1) {
+            alert("Right answer!");
+            img1.src = "images/babitaji.jpeg";
+            q = 2;
+        } else {
+            alert("Wrong answer!");
+        }
+    });
+
+    bradio.addEventListener("click", () => {
+        if (q == 2) {
+            alert("Right answer!");
+            img1.src = "images/popatlal.jpeg";
+            q = 3;
+        } else {
+            alert("Wrong answer!");
+        }
+    });
+
+    pradio.addEventListener("click", () => {
+        if (q == 3) {
+            alert("Right answer!");
+            img1.src = "images/tapu.jpeg";
+            q = 4;
+        } else {
+            alert("Wrong answer!");
+        }
+    });
+
+    tradio.addEventListener("click", () => {
+        if (q == 4) {
+            alert("Right answer!");
+            img1.src = "images/tapu.jpeg";
+            q = 1;
+        } else {
+            alert("complete the game!!");
+        }
+    });
+</script>
+
+</html>

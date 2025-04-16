@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Finder Game</title>
+    <style>
+        /* Center everything */
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        /* Image Styling */
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            display: block;
+            margin: 10px auto;
+        }
+
+        /* Centering the radio button group */
+        .radio-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            /* Adds space between buttons */
+            margin-top: 10px;
+        }
+
+        /* Hide default radio button */
+        input[type="radio"] {
+            display: none;
+        }
+
+        /* Styling the labels as buttons */
+        label {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        /* Highlight the selected button */
+        input[type="radio"]:checked+label {
+            background-color: #2ecc71;
+        }
+
+        #div2,
+        #div3,
+        #div4,
+        #div5,
+        #div6,
+        #div7 {
+            display: none;
+        }
+
+        /* Style the Next button */
+        #btnnxt {
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        /* Hover effect */
+        #btnnxt:hover {
+            background-color: #c0392b;
+        }
+
+        /* Center the button */
+        #btnnxt {
+            display: block;
+            margin: 20px auto;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div id="div1">
+            <img src="images/jethalal.jpeg" alt="jethalal" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="babitaji1" value="babitaji" name="img1">
+                <label for="babitaji1">Babitaji</label>
+
+                <input type="radio" id="jethalal1" value="jethalal" name="img1">
+                <label for="jethalal1">Jethalal</label>
+
+                <input type="radio" id="daya1" value="daya" name="img1">
+                <label for="daya1">Daya</label>
+
+                <input type="radio" id="sundar1" value="sundar" name="img1">
+                <label for="sundar1">Sundar</label>
+            </div>
+        </div>
+
+        <div id="div2">
+            <img src="images/babitaji.jpeg" alt="babitaji" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="babitaji2" value="babitaji" name="img2">
+                <label for="babitaji2">Babitaji</label>
+
+                <input type="radio" id="popatlal2" value="popatlal" name="img2">
+                <label for="popatlal2">Popatlal</label>
+
+                <input type="radio" id="daya2" value="daya" name="img2">
+                <label for="daya2">Daya</label>
+
+                <input type="radio" id="tapu2" value="tapu" name="img2">
+                <label for="tapu2">Tapu</label>
+            </div>
+        </div>
+
+        <div id="div3">
+            <img src="images/sodhi.jpeg" alt="sodhi" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="sodhi3" value="sodhi" name="img4">
+                <label for="sodhi3">Sodhi</label>
+
+                <input type="radio" id="jethalal3" value="Jethalal" name="img3">
+                <label for="jethalal3">Jethalal</label>
+
+                <input type="radio" id="popatlal3" value="popatlal" name="img3">
+                <label for="popatlal3">Popatlal</label>
+
+                <input type="radio" id="babitaji3" value="babitaji" name="img3">
+                <label for="babitaji3">Babitaji</label>
+            </div>
+        </div>
+
+        <div id="div4">
+            <img src="images/popatlal.jpeg" alt="popatlal" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="babitaji4" value="babitaji" nam5="img4">
+                <label for="babitaji4">Babitaji</label>
+
+                <input type="radio" id="tapu4" value="tapu" name="img4">
+                <label for="tapu4">Tapu</label>
+
+                <input type="radio" id="daya4" value="daya" name="img4">
+                <label for="daya4">Daya</label>
+
+                <input type="radio" id="popatlal6" value="popatlal" name="img4">
+                <label for="popatlal6">Popatlal</label>
+            </div>
+        </div>
+
+        <div id="div5">
+            <img src="images/tapu.jpeg" alt="tapu" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="babitaji5" value="babitaji" name="img5">
+                <label for="babitaji5">Babitaji</label>
+
+                <input type="radio" id="jethalal5" value="Jethalal" name="img5">
+                <label for="jethalal5">Jethalal</label>
+
+                <input type="radio" id="daya5" value="daya" name="img5">
+                <label for="daya5">Daya</label>
+
+                <input type="radio" id="tapu4" value="tapu" name="img5">
+                <label for="tapu4">Tapu</label>
+            </div>
+        </div>
+
+        <div id="div6">
+            <img src="images/sundar.jpeg" alt="sundar" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="jethalal6" value="Jethalal" name="img6">
+                <label for="jethalal6">Jethalal</label>
+
+                <input type="radio" id="sodhi6" value="sodhi" name="img6">
+                <label for="sodhi6">Sodhi</label>
+
+                <input type="radio" id="popatlal6" value="popatlal" name="img6">
+                <label for="popatlal6">Popatlal</label>
+
+                <input type="radio" id="sundar6" value="sundar" name="img6">
+                <label for="sundar6">Sundar</label>
+            </div>
+        </div>
+
+        <div id="div7">
+            <img src="images/daya.jpeg" alt="sundar" id="imgframe">
+            <div class="radio-group">
+                <input type="radio" id="jethalal6" value="Jethalal" name="img7">
+                <label for="jethalal6">Jethalal</label>
+
+                <input type="radio" id="daya5" value="daya" name="img7">
+                <label for="daya5">Daya</label>
+
+                <input type="radio" id="sodhi6" value="sodhi" name="img7">
+                <label for="sodhi6">Sodhi</label>
+
+                <input type="radio" id="popatlal6" value="popatlal" name="img7">
+                <label for="popatlal6">Popatlal</label>
+
+
+            </div>
+        </div>
+
+        <input type="button" value="Next" id="btnnxt">
+
+    </div>
+
+</body>
+<script>
+    let btnnxt = document.querySelector("#btnnxt");
+    let imgframe = document.querySelector("#imgframe");
+    let currentDiv = 1;
+
+    btnnxt.addEventListener("click", () => {
+        let  = imgframe.src;
+        let selectradio = document.querySelector(`input[type="radio"]:checked`);
+        let currentDivElement = document.getElementById(`div${currentDiv}`);
+        let imfr = currentDivElement.querySelector("img").src;
+        let totalDivs = 7;
+
+        if (!selectradio) {
+            alert("Please select character!!");
+            return;
+        }
+
+        let selectedvalue = selectradio.value;
+        let correctAnswer = currentDivElement.querySelector("img").alt.toLowerCase();
+
+        if (imfr.includes("images/jethalal.jpeg") && selectedvalue === "jethalal") {
+            if (currentDiv < totalDivs) {
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+            else {
+                alert("Game Over! You have completed all the questions.");
+            }
+        }
+        if(imfr.includes("images/babitaji.jpeg") && selectedvalue === "babitaji"){
+            if(currentDiv < totalDivs){
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+            else{
+                alert("Game Over! You have completed all the questions.");
+            }
+        }
+        if(imfr.includes("images/sodhi.jpeg") && selectedvalue === "sodhi"){
+            if(currentDiv < totalDivs){
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+            else{
+                alert("Game Over! You have completed all the questions.");
+            }
+        }
+        if(imfr.includes("images/popatlal.jpeg") && selectedvalue === "popatlal"){
+            if(currentDiv < totalDivs){
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+        }
+        if(imfr.includes("images/tapu.jpeg") && selectedvalue === "tapu"){
+            if(currentDiv < totalDivs){
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+            else{
+                alert("Game Over! You have completed all the questions.");
+            }
+        }
+        if(imfr.includes("images/sundar.jpeg") && selectedvalue === "sundar"){
+            if(currentDiv < totalDivs){
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+            else{
+                alert("Game Over! You have completed all the questions.");
+            }
+        }
+        if(imfr.includes("images/daya.jpeg") && selectedvalue === "daya"){
+            if(currentDiv < totalDivs){
+                currentDivElement.style.display = "none";
+                currentDiv++;
+                let nextDivElement = document.getElementById(`div${currentDiv}`);
+                nextDivElement.style.display = "block";
+            }
+            else{
+                alert("Game Over! You have completed all the questions.");
+            }
+        }
+    })
+</script>
+
+</html>
