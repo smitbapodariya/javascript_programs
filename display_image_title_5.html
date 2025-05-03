@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const pro = fetch(`https://jsonplaceholder.typicode.com/photos/`).then(re => re.json()).then(data => {
+            data.slice(0,5).forEach(element => {
+                document.writeln(`Title: ${element.title} <br>`);
+                document.writeln(`image: <img src="${element.url}" alt="User Picture">  <br>`);
+                document.writeln(`-----------------------------------------------------------------------------<br>`)
+            });
+        })
+    </script>
+</body>
+
+</html>

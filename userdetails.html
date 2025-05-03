@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        const pro = fetch(`https://ipapi.co/json/`).then(res => res.json()).then(data =>{
+            
+
+            document.writeln(`IP : ${data.ip}<br>`);
+            document.writeln(`city : ${data.city }<br>`);
+            document.writeln(`region : ${data.region }<br>`);
+            document.writeln(`country : ${data.country_name}<br>`);
+        })
+    </script>
+</body>
+</html>

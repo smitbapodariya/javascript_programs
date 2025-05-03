@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Pokemon Type Viewer</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f0f4f8;
+      padding: 20px;
+      text-align: center;
+    }
+
+    h2 {
+      color: #333;
+    }
+
+    input, button {
+      padding: 10px;
+      font-size: 16px;
+      margin: 10px 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    #output {
+      margin-top: 20px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .card {
+      background: white;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      width: 200px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+
+    .card img {
+      width: 100px;
+      height: 100px;
+    }
+
+    .card strong {
+      display: block;
+      margin-top: 10px;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <h2>Search Pokémon by Type</h2>
+  <input type="text" id="type-inp" placeholder="Enter Pokémon type (e.g., fire)">
+  <button id="search-btn">Search</button>
+  <div id="output"></div>
+
+  <script>
+    const btn = document.getElementById("search-btn");
+    const input = document.getElementById("type-inp");
+    const output = document.getElementById("output");
+
+    btn.addEventListener("click", async () => {
+      const type = input.value.trim().toLowerCase();
+      output.innerHTML = "Loading...";
+
+      try {
+        const res = await fetch(`https://pokeapi.co/api/v2/type/${type}`);
+        const data = await res.json();
+
+        output.innerHTML = ""; // clear previous
+
+        const firstFive = data.pokemon.slice(0, 6 );
+
+        for (const poke of firstFive) {
+          const pokeRes = await fetch(poke.pokemon.url);
+          const pokeData = await pokeRes.json();
+
+          const card = `
+            <div class="card">
+              <img src="${pokeData.sprites.other["official-artwork"].front_default}" alt="${pokeData.name}">
+              <strong>Name:</strong> ${pokeData.name}
+              <strong>Type:</strong> ${pokeData.types.map(t => t.type.name).join(", ")}
+            </div>
+          `;
+
+          output.innerHTML += card;
+        }
+      } catch (err) {
+        output.innerHTML = "<p style='color:red;'>Something went wrong or invalid type.</p>";
+        console.error(err);
+      }
+    });
+  </script>
+</body>
+</html>

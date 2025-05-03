@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Country Info</title>
+</head>
+
+<body>
+  <input type="text" placeholder="Enter Country Name" id="city-inp">
+  <input type="button" id="search-btn" value="Search">
+  <br><br>
+  <p id="output"></p>
+
+  <script>
+    let input = document.querySelector("#city-inp");
+    let btn = document.querySelector("#search-btn");
+    let output = document.querySelector("#output"); // avoid using "data" as a variable
+
+    btn.addEventListener("click", () => {
+      let value = input.value.trim();
+
+      fetch(`https://restcountries.com/v3.1/name/${value}`)
+        .then(res => res.json())
+        .then(data => {
+          const country = data[0];
+          output.innerHTML = `
+            <strong>Capital:</strong> ${country.capital[0]}<br>
+            <strong>Region:</strong> ${country.region}<br>
+            <strong>Flag:</strong><br>
+            <img src="${country.flags.png}" alt="Flag" width="100">
+          `;
+        })
+        .catch(error => {
+          console.error(error);
+          output.innerHTML = "Country not found. Please try again.";
+        });
+    });
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #a1c4fd, #c2e9fb);
+            text-align: center;
+            padding: 50px;
+        }
+
+        #city-inp, #search-btn {
+            padding: 10px;
+            font-size: 16px;
+            margin: 5px;
+            border-radius: 5px;
+            border: none;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #search-btn {
+            background-color: #007BFF;
+            color: white;
+            cursor: pointer;
+        }
+
+        #search-btn:hover {
+            background-color: #0056b3;
+        }
+
+        #data {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-block;
+            text-align: left;
+        }
+
+        #data img {
+            display: block;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" placeholder="Enter City Name" id="city-inp">
+    <input type="button" id="search-btn" value="Search">
+    <br>
+    <p id="data"></p>
+    <script>
+        const btn = document.querySelector("#search-btn");
+        const input = document.querySelector("#city-inp");
+        const data = document.querySelector("#data");
+
+        async function getData(cityName) {
+            const promise = await fetch(`http://api.weatherapi.com/v1/current.json?key=a47a58e46d8d40d69de64205250205&q=${cityName}&aqi=yes`);
+            return await promise.json();
+        }
+
+        btn.addEventListener("click", async () => {
+            const value = input.value;
+            const result = await getData(value);
+            data.innerHTML = `
+                <strong>City:</strong> ${result.location.name}<br>
+                <strong>Temperature:</strong> ${result.current.temp_c} °C<br>
+                <strong>Condition:</strong> ${result.current.condition.text}<br>
+                <strong>humidity:</strong> ${result.current.humidity}<br>
+                <img src="https:${result.current.condition.icon}" alt="Weather icon">
+            `;
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const pro = fetch(`https://jsonplaceholder.typicode.com/posts/1`).then(re => re.json()).then(data => {
+            document.writeln(`Title: ${data.title} <br>`);
+            document.writeln(`Body: ${data.body} <br>`);
+        })
+    </script>
+</body>
+</html>
