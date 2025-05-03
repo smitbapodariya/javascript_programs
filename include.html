@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        #arr {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="arr"></span>
+    <br>
+    <input type="text" placeholder="Enter name you want to check in an array" id="txtinp">
+    <br>
+
+    <input type="button" value="Check" id="chk">
+
+    <br>
+    <p id="length"></p>
+    <script>
+        let txtinp = document.querySelector("#txtinp");
+        let arr = document.querySelector("#arr");
+        let chk = document.querySelector("#chk");
+        let Display = document.querySelector("#length");
+
+        let a = ["jay", "ram", "sita", "krishna", "radhey"];
+        arr.innerHTML = "Name : " + a.join(", ");
+
+        chk.addEventListener("click", () => {
+            let t = txtinp.value;
+
+
+            if (a.includes(t)) {
+                Display.innerHTML = "yes it is in it";
+                txtinp.value = "";
+            }
+            else {
+                Display.innerHTML = "no it is't in it so i enter this an array";
+                a.push(t);
+                arr.innerHTML = "Array : " + a.join(", ");
+                txtinp.value = "";
+            }
+        })
+    </script>
+</body>
+
+</html>

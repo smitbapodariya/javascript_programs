@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Table with Serial Number</title>
+</head>
+
+<body>
+
+    <h2>Student Information</h2>
+
+    <table border="1" cellpadding="10" cellspacing="0">
+        <thead>
+            <tr>
+                <th>Sr. No.</th> <!-- New Column Added Here -->
+                <th>Standard</th>
+                <th>Name</th>
+                <th>Hobby</th>
+                <th>Fees</th>
+                <th>Maths Marks</th>
+                <th>English Marks</th>
+            </tr>
+        </thead>
+        <tbody id="studentData">
+            <!-- Data will be inserted here by JavaScript -->
+        </tbody>
+    </table>
+
+    <script>
+        let student = [
+            { std: 9, name: "jay", rno: 5, hobby: "cricket", fees: 7000, maths: 88, english: 67 },
+            { std: 10, name: "ram", rno: 50, hobby: "chess", fees: 15000, maths: 78, english: 97 },
+            { std: 11, name: "sita", rno: 87, hobby: "vollyball", fees: 25000, maths: 95, english: 37 },
+            { std: 11, name: "krishn", rno: 24, hobby: "badmiton", fees: 20000, maths: 38, english: 50 },
+            { std: 10, name: "radha", rno: 2, hobby: "movies", fees: 90000, maths: 40, english: 40 },
+            { std: 12, name: "meet", rno: 72, hobby: "reading", fees: 40000, maths: 30, english: 77 },
+            { std: 9, name: "arun", rno: 7, hobby: "swimming", fees: 6000, maths: 85, english: 75 },
+            { std: 10, name: "priya", rno: 25, hobby: "movies", fees: 11000, maths: 92, english: 85 },
+            { std: 11, name: "alok", rno: 31, hobby: "football", fees: 14000, maths: 88, english: 69 },
+            { std: 12, name: "neha", rno: 40, hobby: "painting", fees: 35000, maths: 78, english: 80 },
+            { std: 9, name: "mohit", rno: 15, hobby: "chess", fees: 9000, maths: 91, english: 72 },
+            { std: 10, name: "deepa", rno: 50, hobby: "dancing", fees: 13000, maths: 76, english: 85 },
+            { std: 11, name: "vikas", rno: 22, hobby: "basketball", fees: 20000, maths: 87, english: 77 },
+            { std: 12, name: "ritesh", rno: 64, hobby: "movies", fees: 45000, maths: 82, english: 60 },
+            { std: 10, name: "sanya", rno: 78, hobby: "reading", fees: 12000, maths: 66, english: 90 },
+            { std: 11, name: "amit", rno: 53, hobby: "coding", fees: 16000, maths: 93, english: 72 },
+            { std: 12, name: "manoj", rno: 12, hobby: "travelling", fees: 25000, maths: 75, english: 85 },
+            { std: 9, name: "sandeep", rno: 34, hobby: "gardening", fees: 8000, maths: 78, english: 82 },
+            { std: 10, name: "shilpa", rno: 60, hobby: "baking", fees: 15000, maths: 84, english: 77 },
+            { std: 11, name: "rohan", rno: 9, hobby: "football", fees: 22000, maths: 69, english: 92 },
+            { std: 12, name: "rahul", rno: 88, hobby: "photography", fees: 37000, maths: 56, english: 88 },
+            { std: 9, name: "neeraj", rno: 44, hobby: "reading", fees: 10000, maths: 79, english: 80 },
+            { std: 10, name: "pradeep", rno: 11, hobby: "writing", fees: 11000, maths: 92, english: 74 },
+            { std: 11, name: "shweta", rno: 63, hobby: "travelling", fees: 18000, maths: 64, english: 90 }
+        ];
+
+        let tableBody = document.getElementById("studentData");
+
+        let hobbbydata = student.filter(hby => hby.hobby === "movies");
+
+        hobbbydata.forEach((stu, index) => {
+            tableBody.innerHTML += `
+            <tr>
+                <td>${index + 1}</td> 
+                <td>${stu.std}</td>
+                <td>${stu.name}</td>
+                <td>${stu.hobby}</td>
+                <td>${stu.fees}</td>
+                <td>${stu.maths}</td>
+                <td>${stu.english}</td>
+            </tr>
+            `;
+        });
+    </script>
+
+</body>
+
+</html>

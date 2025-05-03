@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        #arr {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin: 10px 0;
+            width: 250px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-right: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="arr"></span>
+    <br>
+    <input type="text" placeholder="Enter number you want to add an array" id="txtinp">
+    <br>
+
+    <input type="button" value="Push" id="btnpush">
+    <input type="button" value="pop" id="btnpop">
+    <script>
+        let txtinp = document.querySelector("#txtinp");
+        let arr = document.querySelector("#arr");
+        let btnpush = document.querySelector("#btnpush");
+        let btnpop = document.querySelector("#btnpop");
+
+        let a = [1, 2, 3, 4, 5];
+        arr.innerHTML = "Array : " + a.join(", ");
+
+        btnpush.addEventListener("click", () => {
+            let t = parseInt(txtinp.value);
+            if (!isNaN(t)) {
+                a.push(t)
+                arr.innerHTML = "Array : " + a.join(", ");
+                txtinp.value = "";
+
+            }
+            else {
+                alert("Please enter a valid number.");
+            }
+        })
+
+        btnpop.addEventListener("click", () => {
+            let t = parseInt(txtinp.value);
+            a.pop()
+            arr.innerHTML = "Array : " + a.join(", ");
+        })
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 30px;
+            background-color: #f9f9f9;
+        }
+
+        #arr1,
+        #arr2 {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        input[type="button"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        input[type="button"]:hover {
+            background-color: #0056b3;
+        }
+
+        #length {
+            font-size: 18px;
+            color: green;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <span id="arr1"></span>
+    <br>
+    <span id="arr2"></span>
+    <br>
+
+    <input type="button" value="Check" id="chk">
+
+    <br>
+    <p id="length"></p>
+    <script>
+        let arr1 = document.querySelector("#arr1");
+        let arr2 = document.querySelector("#arr2");
+        let chk = document.querySelector("#chk");
+        let Display = document.querySelector("#length");
+
+        let a1 = [5, 7, 2, 5, 9, 52, 14, 6];
+        let a2 = [3, 7, 6, 4, 2, 3, 8, 52];
+        arr1.innerHTML = "Array1 : " + a1;
+        arr2.innerHTML = "Array2 : " + a2;
+
+        let count = [];
+        chk.addEventListener("click", () => {
+            for (let i = 0; i <= a1.length; i++) {
+                for (let j = 0; j <= a2.length; j++) {
+                    if (a1[i] === a2[j]) {
+                        count.push(a1[i]);
+                    }
+                }
+            }
+            Display.innerHTML = "Same value in both array:" + count;
+        })
+    </script>
+</body>
+
+</html>
